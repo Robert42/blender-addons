@@ -7,6 +7,7 @@ bl_info = {
     "description": "Creates a Panel guessing the minimum environment map resolution",
     "warning": "The results of this add-on need to be validated by a test.",
     "wiki_url": "",
+    "tracker_url": "https://github.com/Robert42/blender-addons/issues",
     "category": "Object",
     }
 
