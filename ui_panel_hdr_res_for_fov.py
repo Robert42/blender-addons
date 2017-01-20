@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "Calc Required Env-Map Resolution",
+    "name": "New Object",
     "author": "Robert Hildebrandt",
     "version": (1, 0),
     "blender": (2, 75, 0),
@@ -33,12 +33,24 @@ class HdrResPanel(bpy.types.Panel):
         
         camera = obj
         render_resolution = Vector((context.scene.render.resolution_x, context.scene.render.resolution_y)) * context.scene.render.resolution_percentage / 100.
-        min_env_resolution_x = int(ceil(render_resolution.x * 2. * pi / camera.data.angle_x))
-        min_env_resolution_y = int(ceil(render_resolution.y * 1. * pi / camera.data.angle_y))
-
-        row = layout.row()
-        row.label(text="Required Env-Map Resolution: {}x{}".format(min_env_resolution_x, min_env_resolution_y), icon='WORLD_DATA')
         
+        fov_h = camera.data.angle_x
+        fov_v = camera.data.angle_y
+    
+        layout.label(text="Required Env-Map Resolution", icon='WORLD_DATA')
+        
+        min_env_resolution_x = int(ceil(render_resolution.x * 2. * pi / fov_h))
+        min_env_resolution_y = int(ceil(render_resolution.y * 1. * pi / fov_v))
+        
+        layout.label(text="Required resolution, when you never roll the camera:")
+        layout.label(text=" {}x{}".format(min_env_resolution_x, min_env_resolution_y))
+        
+        fov = min(fov_h, fov_v)
+        min_env_resolution_x = int(ceil(render_resolution.x * 2. * pi / fov))
+        min_env_resolution_y = int(ceil(render_resolution.y * 1. * pi / fov))
+        layout.label(text="Required resolution, when potentially roll the camera:")
+        layout.label(text=" {}x{}".format(min_env_resolution_x, min_env_resolution_y))
+                
 
 
 def register():
