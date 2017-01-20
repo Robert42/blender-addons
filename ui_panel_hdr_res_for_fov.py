@@ -1,11 +1,11 @@
 bl_info = {
-    "name": "New Object",
+    "name": "Required Env-Map Resolution",
     "author": "Robert Hildebrandt",
-    "version": (1, 0),
+    "version": (0, 5),
     "blender": (2, 75, 0),
     "location": "Properties > Data (Camera Only) > Required Env-Map Resolution",
     "description": "Creates a Panel guessing the minimum environment map resolution",
-    "warning": "",
+    "warning": "The results of this add-on need to be validated by a test.",
     "wiki_url": "",
     "category": "Object",
     }
