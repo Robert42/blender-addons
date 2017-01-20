@@ -42,13 +42,6 @@ class HdrResPanel(bpy.types.Panel):
         min_env_resolution_x = int(ceil(render_resolution.x * 2. * pi / fov_h))
         min_env_resolution_y = int(ceil(render_resolution.y * 1. * pi / fov_v))
         
-        layout.label(text="Required resolution, when you never roll the camera:")
-        layout.label(text=" {}x{}".format(min_env_resolution_x, min_env_resolution_y))
-        
-        fov = min(fov_h, fov_v)
-        min_env_resolution_x = int(ceil(render_resolution.x * 2. * pi / fov))
-        min_env_resolution_y = int(ceil(render_resolution.y * 1. * pi / fov))
-        layout.label(text="Required resolution, when potentially roll the camera:")
         layout.label(text=" {}x{}".format(min_env_resolution_x, min_env_resolution_y))
                 
 
