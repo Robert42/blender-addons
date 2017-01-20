@@ -18,7 +18,7 @@ from math import *
 class HdrResPanel(bpy.types.Panel):
     """Creates a Panel guessing the minimum environment map resolution"""
     bl_label = "Required Env-Map Resolution"
-    bl_idname = "OBJECT_PT_hello"
+    bl_idname = "OBJECT_PT_envmap_resolution_for_fov"
     bl_space_type = 'PROPERTIES'
     bl_region_type = 'WINDOW'
     bl_context = "data"
